@@ -2,7 +2,7 @@
 .ipynb_checkpoints
 .idea/
 data/
-model/
+models/
 logs/
 runs/
 
