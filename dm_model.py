@@ -14,11 +14,11 @@ def train_dialogue(domain_file='./domain/domain.yml',
     fallback = FallbackPolicy(fallback_action_name="utter_default",
                               core_threshold=0.2,
                               nlu_threshold=0.1)
-    agent = Agent(domain_file,policies=[MemoizationPolicy(),
-                                        KerasPolicy(),
-                                        fallback,
-                                        FormPolicy(),
-                                        EmbeddingPolicy(epochs=100)])
+    agent = Agent(domain_file, policies=[MemoizationPolicy(),
+                                         KerasPolicy(),
+                                         fallback,
+                                         FormPolicy(),
+                                         EmbeddingPolicy(epochs=100)])
     agent.visualize(training_data_file, output_file="graph.html", max_history=4)
     training_data = agent.load_data(training_data_file)  # augmentation_factor=0
     agent.train(training_data)
