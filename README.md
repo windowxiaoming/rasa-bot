@@ -3,6 +3,7 @@
 ## 环境安装
 
 ```bash
+pip install git+https://github.com/mit-nlp/MITIE.git
 pip install rasa_nlu rasa_core
 ```
 
