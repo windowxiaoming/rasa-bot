@@ -6,8 +6,8 @@ import json
 
 
 # natural language understanding model
-def train_nlu(data='./nlu/nlu.md',
-              configs='./pipeline/spacy_en.yml',
+def train_nlu(data='./config/nlu/nlu.md',
+              configs='./config/pipeline/spacy_en.yml',
               model_dir='./models/nlu'):
     training_data = load_data(data)
     trainer = Trainer(config.load(configs))
@@ -26,7 +26,6 @@ def run_nlu(nlu_model_path='./models/nlu/default/current'):
 
 
 if __name__ == '__main__':
-    # train_nlu('./nlu/nlu.md', './pipeline/spacy_en.yml', './models/nlu')
+    # train_nlu('./config/nlu/nlu.md', './config/pipeline/spacy_en.yml', './models/nlu')
     train_nlu('./config/nlu/nlu.json', './config/pipeline/MITIE+jieba.yml', './models/nlu_zh')
-    # train_nlu('./nlu/nlu_restaurant.md', './pipeline/spacy_en.yml', './models/nlu_restaurant')
     run_nlu(nlu_model_path='./models/nlu_zh/default/current')

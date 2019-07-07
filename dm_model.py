@@ -8,9 +8,9 @@ logger = logging.getLogger(__name__)
 
 
 # dialogue manager model
-def train_dialogue(domain_file='./domain/domain.yml',
-                   model_path='./models/dialogue',
-                   training_data_file='./stories/stories.md'):
+def train_dialogue(domain_file='./config/domain/domain.yml',
+                   training_data_file='./config/stories/stories.md',
+                   model_path='./models/dialogue'):
     fallback = FallbackPolicy(fallback_action_name="utter_default",
                               core_threshold=0.2,
                               nlu_threshold=0.1)
@@ -28,4 +28,4 @@ def train_dialogue(domain_file='./domain/domain.yml',
 
 if __name__ == '__main__':
     # train_dialogue()
-    train_dialogue('./domain/domain_zh.yml', './models/dialogue_zh', './stories/stories_zh.md')
+    train_dialogue('./config/domain/domain_zh.yml', './config/stories/stories_zh.md', './models/dialogue_zh')
