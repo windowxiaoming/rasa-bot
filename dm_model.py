@@ -19,7 +19,7 @@ def train_dialogue(domain_file='./config/domain/domain.yml',
                                          fallback,
                                          FormPolicy(),
                                          EmbeddingPolicy(epochs=100)])
-    agent.visualize(training_data_file, output_file="graph.html", max_history=4)
+    # agent.visualize(training_data_file, output_file="graph.html", max_history=4)
     training_data = agent.load_data(training_data_file)  # augmentation_factor=0
     agent.train(training_data)
     agent.persist(model_path)
@@ -27,5 +27,5 @@ def train_dialogue(domain_file='./config/domain/domain.yml',
 
 
 if __name__ == '__main__':
-    # train_dialogue()
-    train_dialogue('./config/domain/domain_zh.yml', './config/stories/stories_zh.md', './models/dialogue_zh')
+    train_dialogue()
+    # train_dialogue('./config/domain/domain_zh.yml', './config/stories/stories_zh.md', './models/dialogue_zh')

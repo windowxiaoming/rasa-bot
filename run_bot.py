@@ -8,8 +8,7 @@ def run_bot(serve_forever=True,
             nlu_model_path='./models/nlu/default/current'):
     nlu_interpreter = RasaNLUInterpreter(nlu_model_path)
     action_endpoint = EndpointConfig(url="http://localhost:5055/webhook", serve_forever=serve_forever)
-    agent = Agent.load(model_path, interpreter=nlu_interpreter, action_endpoint=action_endpoint)
-    return agent
+    return Agent.load(model_path, interpreter=nlu_interpreter, action_endpoint=action_endpoint)
 
 
 if __name__ == '__main__':

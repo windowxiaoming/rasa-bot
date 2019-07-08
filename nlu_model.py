@@ -5,7 +5,6 @@ from rasa_nlu.model import Interpreter
 import json
 
 
-# natural language understanding model
 def train_nlu(data='./config/nlu/nlu.md',
               configs='./config/pipeline/spacy_en.yml',
               model_dir='./models/nlu'):
@@ -20,12 +19,14 @@ def pprint(o):
     print(json.dumps(o, indent=2, ensure_ascii=False))
 
 
-def run_nlu(nlu_model_path='./models/nlu/default/current'):
+def run_nlu(sentence, nlu_model_path='./models/nlu/default/current'):
     interpreter = Interpreter.load(nlu_model_path)
-    pprint(interpreter.parse(u"上海明天天气"))
+    pprint(interpreter.parse(sentence))
 
 
 if __name__ == '__main__':
-    # train_nlu('./config/nlu/nlu.md', './config/pipeline/spacy_en.yml', './models/nlu')
-    train_nlu('./config/nlu/nlu.json', './config/pipeline/MITIE+jieba.yml', './models/nlu_zh')
-    run_nlu(nlu_model_path='./models/nlu_zh/default/current')
+    train_nlu()
+    run_nlu('Hello')
+    # train_nlu('./config/nlu/nlu.json', './config/pipeline/MITIE+jieba.yml', './models/nlu_zh')
+    # run_nlu('上海明天天气',nlu_model_path='./models/nlu_zh/default/current')
+
